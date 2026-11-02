@@ -249,3 +249,5 @@ settings.local.*
 *.secret
 secrets/
 secrets.*
+# PyCharm debugger support libs (auto-generated)
+*-pycharm-support-libs/
