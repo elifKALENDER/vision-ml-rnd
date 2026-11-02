@@ -1,0 +1,27 @@
+# Conda environment for vision-ml-rnd.
+#
+#   conda env create -f environment.yml
+#   conda activate vision-ml-rnd
+#   python -m ipykernel install --user --name vision-ml-rnd --display-name "Python (vision-ml-rnd)"
+#
+# Covers Modules 0–6 and the parallel tracks. PyTorch is added when Module 7 starts
+# (CPU/CUDA build depends on the machine), so m07+ notebooks fail on `import torch` until then.
+name: vision-ml-rnd
+channels:
+  - defaults
+dependencies:
+  - python=3.13
+  - numpy=2.5
+  - pandas=3.0
+  - scipy=1.18
+  - scikit-learn=1.9
+  - matplotlib=3.11
+  - seaborn=0.13
+  - pillow=11.1
+  - ipykernel=7.3
+  - pytest=9.0
+  - pip
+  - pip:
+      - opencv-python==5.0.0.93
+      - pandas-stubs==3.0.5.260730
+      - scipy-stubs==1.18.1.0

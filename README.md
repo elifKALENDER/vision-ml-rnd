@@ -22,7 +22,19 @@ papers/          Paper notes
 src/             Reusable code extracted from the notebooks
 archive/         Earlier Python / pandas / OpenCV practice (frozen)
 PROGRESS.md      Session plan and progress log
+CLAUDE.md        Working notes and session log for AI-assisted sessions
+environment.yml  Conda environment (vision-ml-rnd)
 ```
+
+## Setup
+
+```
+conda env create -f environment.yml
+conda activate vision-ml-rnd
+python -m ipykernel install --user --name vision-ml-rnd --display-name "Python (vision-ml-rnd)"
+```
+
+Run notebooks from the `learning/` directory; they use paths relative to it (`images/`, `data/`, `outputs/`).
 
 ## Curriculum
 
