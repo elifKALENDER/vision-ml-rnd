@@ -29,5 +29,5 @@ Bu dosya her oturumun başında okunur. Oturum sonunda **Oturum günlüğü** b�
 - Taşımadan sonra bozulan yol düzeltildi: `m01a` 24. hücre maskeyi `outputs/duck_yellow_mask.png` olarak kaydediyor.
 - Conda env `vision-ml-rnd` adıyla klonlandı, Jupyter kernel kaydedildi, `environment.yml` ve README kurulum bölümü eklendi.
 - Tüm notebook'lar yeni ortamda baştan sona çalıştırıldı: m07+ dışında hata yok (onlarda `torch` yok, beklenen durum).
-- **Açık:** PyCharm yorumlayıcısı `vision-ml-rnd`'e geçirilecek, sonra eski env `industrial-ai-ml-prep` ve kernel'i silinecek.
+- PyCharm yorumlayıcısı `vision-ml-rnd`'e geçirildi. Eski env `industrial-ai-ml-prep` ve Jupyter kernel'i silindi.
 - **Sıradaki:** `m01b` (dönüşümler + morfoloji).
