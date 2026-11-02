@@ -1,108 +1,51 @@
-# Data_Science_Exercises
+# vision-ml-rnd
 
-Hands-on practice in Python, data science, machine learning, and industrial AI applications.
+A structured, exercise-driven path from Python and classical computer vision to deep learning, 3D geometry and generative models, documented as reproducible R&D reports.
 
-## About
+The long-term target is **MassToRender** (RND-016): turning architectural massing models and sketches into controlled renders. Every module builds a skill that project needs.
 
-This repository is a personal learning and practice archive focused on building practical data science and AI/ML skills through structured exercises and progressively larger projects.
+## Structure
 
-The goal is not simply to complete tutorials, but to turn previously learned concepts into independent coding and problem-solving ability.
+```
+learning/        Module notebooks, named by module number
+  m00_numpy_core.ipynb          Module 0
+  m01a_… m01b_… m01c_…          Module 1 (classical CV, three parts)
+  m02_… … m18_…                 Modules 2–18
+  m15b_rendering_pbr.ipynb      Module 15b
+  k1_kaggle.ipynb, k2_kaggle    Kaggle checkpoints
+  extras.ipynb                  Supplementary sessions (EK-A–D)
+  tracks/                       Parallel tracks P1–P5
+  images/, data/                Inputs used by the notebooks
+  outputs/                      Generated files (git-ignored)
+rnd/             R&D reports (RND-NNN) and technical notes (TN-NNN)
+papers/          Paper notes
+src/             Reusable code extracted from the notebooks
+archive/         Earlier Python / pandas / OpenCV practice (frozen)
+PROGRESS.md      Session plan and progress log
+```
 
-## Learning Path
+## Curriculum
 
-Python  
-↓  
-CSV / JSON / File Handling  
-↓  
-Pandas / NumPy  
-↓  
-Data Cleaning  
-↓  
-Exploratory Data Analysis (EDA)  
-↓  
-Statistics & Visualization  
-↓  
-Feature Engineering  
-↓  
-Machine Learning  
-↓  
-Industrial AI Case Studies
+| Phase | Modules |
+|---|---|
+| Foundations | 0 Python + NumPy · 1 Classical CV · 2 Data + ML baseline · 3 Classical ML · 4 Math for ML · 5 Experiment design |
+| Deep learning | 6 NN from scratch · 7 PyTorch training · 8 CNN + transfer · 9 Transformers, SSL, multimodal |
+| Vision tasks | 10 Dataset engineering · 11 Detection · 12 Segmentation · 13 Video + tracking · **K1** |
+| Geometry & rendering | 14 Projective geometry · 15 Multi-view 3D · 15b Radiometry & PBR |
+| Generative & deployment | 16 Diffusion · 17 Controlled generation · 18 Deployment · **K2** |
 
-## Topics
+Each module ends with an R&D report answering one concrete question. See [`rnd/README.md`](rnd/README.md) and [`PROGRESS.md`](PROGRESS.md).
 
-The repository currently covers:
+## Learning method
 
-- Core Python
-- Lists, dictionaries, tuples and sets
-- Functions, loops and conditions
-- File handling and JSON
-- CSV processing
-- Pandas
-- NumPy
-- Data cleaning
-- Exploratory data analysis
-- Statistics and visualization
-- Feature engineering
-- ML-ready data preparation
+Problem → understand input/output → write a first solution → test → debug → refactor → repeat from a blank file.
 
-## Practice Approach
+AI assistance is used as a learning and debugging aid, not as a replacement for understanding the solution. `PROGRESS.md` records which exercises were done without AI.
 
-The exercises are built around concrete problems instead of isolated syntax drills.
+## Sources
 
-Current examples include:
-
-- machine sensor analysis
-- missing-value handling
-- duplicate detection
-- anomaly detection
-- filtering and aggregation
-- correlation analysis
-- simple rule-based risk scoring
-- preparing data for machine learning
-
-The industrial sensor exercises use a small learning scenario based on temperature, vibration, pressure and machine status.
-
-## Learning Method
-
-The general workflow is:
-
-Problem  
-↓  
-Understand the input and output  
-↓  
-Choose the appropriate data structure  
-↓  
-Write an initial solution  
-↓  
-Test  
-↓  
-Debug  
-↓  
-Refactor  
-↓  
-Repeat from a blank file
-
-AI assistance is used as a learning and debugging aid rather than as a replacement for understanding the solution.
-
-## Learning Sources
-
-Some exercises are based on concepts previously studied through MIUUL training materials.
-
-The course materials are used as a reference for concepts and syntax, while the exercises in this repository are reworked into independent practice problems.
-
-## Planned Projects
-
-After completing the Python, data analysis and machine learning preparation stages, this repository will expand into larger Industrial AI case studies:
-
-1. Predictive Maintenance / Anomaly Detection
-2. Visual Quality Inspection
-
-Additional AI/ML experiments and projects may be added as the learning path develops.
-
-## Status
-
-This is an active learning repository. The code, structure and projects will evolve as new topics are studied and previously learned material is revisited.
+Early exercises (see `archive/`) build on concepts studied in MIUUL training materials, reworked into independent practice problems.
 
 ## License
 
-This project is licensed under the MIT License.
+MIT
