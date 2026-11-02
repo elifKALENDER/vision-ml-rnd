@@ -1,4 +1,4 @@
-# Data_Science_Execises
+# Data_Science_Exercises
 
 Hands-on practice in Python, data science, machine learning, and industrial AI applications.
 
