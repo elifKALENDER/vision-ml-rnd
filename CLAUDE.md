@@ -30,4 +30,5 @@ Bu dosya her oturumun başında okunur. Oturum sonunda **Oturum günlüğü** b�
 - Conda env `vision-ml-rnd` adıyla klonlandı, Jupyter kernel kaydedildi, `environment.yml` ve README kurulum bölümü eklendi.
 - Tüm notebook'lar yeni ortamda baştan sona çalıştırıldı: m07+ dışında hata yok (onlarda `torch` yok, beklenen durum).
 - PyCharm yorumlayıcısı `vision-ml-rnd`'e geçirildi. Eski env `industrial-ai-ml-prep` ve Jupyter kernel'i silindi.
+- `environment.yml` sürümleri tam sürüme sabitlendi (`numpy=2.5` → `2.5.1` vb.): PyCharm `=2.5`i `==2.5.0` okuyup yanlış "requirements not satisfied" uyarısı veriyordu.
 - **Sıradaki:** `m01b` (dönüşümler + morfoloji).
