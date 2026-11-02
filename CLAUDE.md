@@ -18,6 +18,7 @@ Bu dosya her oturumun başında okunur. Oturum sonunda **Oturum günlüğü** b�
 ## Çalışma tarzı
 - Türkçe konuş.
 - Kullanıcı yazarak öğrenmek istiyor: düzeltmenin *nedenini* açıkla, anlamlı kısımları ona bırak, hazır çözüm verme.
+- **`learning/` notebook'larındaki koda asla dokunma.** Bunlar öğrenme dosyaları. Kullanıcı hata alınca sorar: sebebini açıkla, ipucu ver, düzeltmeyi kendisi yapsın. Egzersizler ayrı bir Claude sohbetinde (öğrenme arşivi) yürütülüyor.
 - Notebook diff'leri gürültülü (base64 çıktılar). Değişikliklere hücre kaynağı üzerinden bak.
 
 ## Oturum günlüğü
