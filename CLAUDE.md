@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Bu dosya her oturumun başında okunur. Oturum sonunda **Oturum günlüğü** bölümüne kısa bir kayıt eklenir.
+Bu dosya her oturumun başında okunur. Repo/ortam değişikliği yapılan oturumların sonunda **Altyapı günlüğü** bölümüne kısa bir kayıt eklenir.
 
 ## Proje
 - Repo: `F:\vision-ml-rnd`, remote `https://github.com/elifKALENDER/vision-ml-rnd.git` (branch `main`).
@@ -21,8 +21,8 @@ Bu dosya her oturumun başında okunur. Oturum sonunda **Oturum günlüğü** b�
 - **`learning/` notebook'larındaki koda asla dokunma.** Bunlar öğrenme dosyaları. Kullanıcı hata alınca sorar: sebebini açıkla, ipucu ver, düzeltmeyi kendisi yapsın. Egzersizler ayrı bir Claude sohbetinde (öğrenme arşivi) yürütülüyor.
 - Notebook diff'leri gürültülü (base64 çıktılar). Değişikliklere hücre kaynağı üzerinden bak.
 
-## Oturum günlüğü
-<!-- En yeni en üstte. Her oturum: "### YYYY-MM-DD — konu", altında ne yapıldı, açık işler, sıradaki adım. -->
+## Altyapı günlüğü
+<!-- Repo, ortam ve araç değişiklikleri. Egzersiz ilerlemesi burada değil, PROGRESS.md'deki "Oturum günlüğü"nde. En yeni en üstte. Her oturum: "### YYYY-MM-DD — konu", altında ne yapıldı, açık işler, sıradaki adım. -->
 
 ### 2026-11-02 — Proje yeniden adlandırma ve ortam düzeni
 - Remote ve yerel repo `industrial-ai-ml-prep` → `vision-ml-rnd` olarak yeniden adlandırıldı, proje klasörü taşındı.
@@ -32,4 +32,5 @@ Bu dosya her oturumun başında okunur. Oturum sonunda **Oturum günlüğü** b�
 - Tüm notebook'lar yeni ortamda baştan sona çalıştırıldı: m07+ dışında hata yok (onlarda `torch` yok, beklenen durum).
 - PyCharm yorumlayıcısı `vision-ml-rnd`'e geçirildi. Eski env `industrial-ai-ml-prep` ve Jupyter kernel'i silindi.
 - `environment.yml` sürümleri tam sürüme sabitlendi (`numpy=2.5` → `2.5.1` vb.): PyCharm `=2.5`i `==2.5.0` okuyup yanlış "requirements not satisfied" uyarısı veriyordu.
+- Repo düzeni gözden geçirildi: `.gitattributes` eklendi (LF), `rnd/README.md` tablosu tamamen İngilizce yapıldı, bu bölüm "Altyapı günlüğü" olarak ayrıldı. Bilinçli olarak bırakılanlar: `archive/` adları (dondurulmuş), `learning/data/m2_images` → `m02_images` (m02 notebook kodunda geçiyor, kullanıcı Modül 2'de kendisi değiştirecek).
 - **Sıradaki:** `m01b` (dönüşümler + morfoloji).

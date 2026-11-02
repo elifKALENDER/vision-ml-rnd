@@ -6,21 +6,21 @@ Each report lives in its own folder: `RND-NNN-<topic>/` with `report.md`, `figur
 |---|---|---|---|---|
 | RND-001 | 1 | SketchToRender: how does sketch preprocessing (raw / Canny / adaptive threshold) change line fidelity of the render? | — | planned |
 | RND-002 | 2 | Dataset audit + leakage-free baseline: how much does a group split change the score? | — | planned |
-| RND-003 | 3 | Faz B'deki derin modellerin karşısına konacak en güçlü klasik baseline hangisi? | — | planned |
-| TN-001 | 4 | ML matematiği | — | planned |
-| TN-002 | 5 | Deney tasarımı ve istatistik | — | planned |
-| RND-004 | 6 | Sıfırdan yazılmış bir MLP, küçük veride klasik baseline'ı geçebiliyor mu; init ve optimizer seçimi ne kadar fark yaratıyor? | — | planned |
-| RND-005 | 7 | Küçük bir mimari görsel setinde sıfırdan eğitilmiş küçük bir CNN, klasik baseline'ı geçiyor mu? | — | planned |
-| RND-006 | 8 | Küçük mimari veri setlerinde transfer learning: linear probe mu, kısmi mi, tam fine-tune mu? | — | planned |
-| RND-007 | 9 | Tarihi yapı elemanları için az örnekli sınıflandırmada hangi donmuş özellikler en iyi: ResNet, DINOv2, CLIP? | — | planned |
-| RND-008 | 10 | Kendi etiketlerim ne kadar tutarlı ve bu, ulaşılabilecek en yüksek mAP için ne anlama geliyor? | — | planned |
-| RND-009 | 11 | Gerçek + sentetik görsellerle eğitilen bir detector, cephedeki pencereleri güvenilir şekilde sayabiliyor mu? | — | planned |
-| RND-010 | 12 | Cephe elemanı segmentasyonunda SAM 2 sıfır-atış mı, eğitilmiş U-Net mi? | — | planned |
-| RND-011 | 13 | Sabit bir kameradan elde edilen yaya yörüngeleri arzu yollarını ortaya çıkarabilir mi? | — | planned |
-| RND-012 | K1 | Bu yarışmada skoru en çok ne değiştirdi: veri, çözünürlük, backbone, ensemble? | — | planned |
-| RND-013 | 14 | Tekrarlı cephelerde klasik (SIFT + RANSAC) mi öğrenilmiş (LightGlue) eşleştirme mi daha güvenilir? | — | planned |
-| RND-014 | 15 | MASt3R derinliği, orijinal ve clay ön işlemeli girdilerde Blender ground truth'a göre ne kadar farklı? | — | planned |
-| RND-015 | 16 | RTX 2060'ta SD 1.5 için adım sayısı × scheduler: kalite (CLIP/FID) ve süre dengesi nerede? | — | planned |
-| RND-016 | 17 | MassToRender benchmark v1: yapıyı hangi ControlNet bileşeni, malzemeyi hangisi taşıyor? | — | planned |
-| RND-017 | 18 | Modellerimin RTX 2060'ta dağıtım maliyeti: PyTorch FP32, FP16, ONNX ve TensorRT karşılaştırması | — | planned |
-| RND-018 | K2 | Kaggle 1'e göre ne değişti: hangi yeni yöntem kaç sıra kazandırdı? | — | planned |
+| RND-003 | 3 | Which classical model is the strongest baseline to set against the Phase B deep models? | — | planned |
+| TN-001 | 4 | Math for ML | — | planned |
+| TN-002 | 5 | Experiment design and statistics | — | planned |
+| RND-004 | 6 | Can an MLP written from scratch beat the classical baseline on small data, and how much do initialization and optimizer choice matter? | — | planned |
+| RND-005 | 7 | Does a small CNN trained from scratch on a small architectural image set beat the classical baseline? | — | planned |
+| RND-006 | 8 | Transfer learning on small architectural datasets: linear probe, partial or full fine-tuning? | — | planned |
+| RND-007 | 9 | Which frozen features work best for few-shot classification of historic building elements: ResNet, DINOv2 or CLIP? | — | planned |
+| RND-008 | 10 | How consistent are my own labels, and what does that imply for the highest reachable mAP? | — | planned |
+| RND-009 | 11 | Can a detector trained on real + synthetic images reliably count windows on a facade? | — | planned |
+| RND-010 | 12 | Facade element segmentation: zero-shot SAM 2 or a trained U-Net? | — | planned |
+| RND-011 | 13 | Can pedestrian trajectories from a fixed camera reveal desire paths? | — | planned |
+| RND-012 | K1 | What moved the score most in this competition: data, resolution, backbone or ensembling? | — | planned |
+| RND-013 | 14 | On repetitive facades, is classical (SIFT + RANSAC) or learned (LightGlue) matching more reliable? | — | planned |
+| RND-014 | 15 | How far does MASt3R depth deviate from Blender ground truth on original vs clay-preprocessed inputs? | — | planned |
+| RND-015 | 16 | SD 1.5 on an RTX 2060, steps × scheduler: where is the quality (CLIP/FID) vs time trade-off? | — | planned |
+| RND-016 | 17 | MassToRender benchmark v1: which ControlNet component carries structure, and which carries material? | — | planned |
+| RND-017 | 18 | Deployment cost of my models on an RTX 2060: PyTorch FP32 vs FP16 vs ONNX vs TensorRT | — | planned |
+| RND-018 | K2 | What changed since Kaggle 1: how many places did each new method gain? | — | planned |

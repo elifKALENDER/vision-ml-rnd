@@ -1,0 +1,12 @@
+# Store and check out text files with LF line endings on every OS.
+# Jupyter and PyCharm already write LF; this stops CRLF conversion warnings.
+* text=auto eol=lf
+
+# Binary assets: never touch line endings or diff as text.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.pdf  binary
+*.npy  binary
+*.npz  binary
