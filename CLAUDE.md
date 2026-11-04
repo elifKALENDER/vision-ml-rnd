@@ -20,6 +20,7 @@ Bu dosya her oturumun başında okunur. Repo/ortam değişikliği yapılan oturu
 - Kullanıcı yazarak öğrenmek istiyor: düzeltmenin *nedenini* açıkla, anlamlı kısımları ona bırak, hazır çözüm verme.
 - **`learning/` notebook'larındaki koda asla dokunma.** Bunlar öğrenme dosyaları. Kullanıcı hata alınca sorar: sebebini açıkla, ipucu ver, düzeltmeyi kendisi yapsın. Egzersizler ayrı bir Claude sohbetinde (öğrenme arşivi) yürütülüyor.
 - Notebook diff'leri gürültülü (base64 çıktılar). Değişikliklere hücre kaynağı üzerinden bak.
+- Oturum sonunda kullanıcı ders notları yapıştırırsa kökteki `lessons.md`'ye ekle (dosya zaten var, üzerine yazma, sonuna ekle); yapıştırmazsa sor.
 
 ## Altyapı günlüğü
 <!-- Repo, ortam ve araç değişiklikleri. Egzersiz ilerlemesi burada değil, PROGRESS.md'deki "Oturum günlüğü"nde. En yeni en üstte. Her oturum: "### YYYY-MM-DD — konu", altında ne yapıldı, açık işler, sıradaki adım. -->
