@@ -19,11 +19,20 @@ Bu dosya her oturumun başında okunur. Repo/ortam değişikliği yapılan oturu
 - Türkçe konuş.
 - Kullanıcı yazarak öğrenmek istiyor: düzeltmenin *nedenini* açıkla, anlamlı kısımları ona bırak, hazır çözüm verme.
 - **`learning/` notebook'larındaki koda asla dokunma.** Bunlar öğrenme dosyaları. Kullanıcı hata alınca sorar: sebebini açıkla, ipucu ver, düzeltmeyi kendisi yapsın. Egzersizler ayrı bir Claude sohbetinde (öğrenme arşivi) yürütülüyor.
+- Kural `learning/` altındaki **tüm dosyaları** kapsar (`.py` yardımcıları dahil, örn. `cvtools.py`), sadece `.ipynb`'yi değil. Kullanıcı o an açıkça isterse istisna yapılır; istisna sadece istenen kapsamla sınırlıdır.
+- **Dil kuralı:** Koddaki her şey İngilizce olur: docstring'ler, yorumlar, hata mesajları, değişken/fonksiyon adları. Konuşma Türkçe kalır. İstisna: kodun davranışını belirleyen string değerler (örn. `diagnose_exposure`'ın döndürdüğü `"karanlık"`) testler karşılaştırdığı için kullanıcı değiştirmedikçe aynen kalır.
 - Notebook diff'leri gürültülü (base64 çıktılar). Değişikliklere hücre kaynağı üzerinden bak.
 - Oturum sonunda kullanıcı ders notları yapıştırırsa kökteki `lessons.md`'ye ekle (dosya zaten var, üzerine yazma, sonuna ekle); yapıştırmazsa sor.
 
 ## Altyapı günlüğü
 <!-- Repo, ortam ve araç değişiklikleri. Egzersiz ilerlemesi burada değil, PROGRESS.md'deki "Oturum günlüğü"nde. En yeni en üstte. Her oturum: "### YYYY-MM-DD — konu", altında ne yapıldı, açık işler, sıradaki adım. -->
+
+### 2026-11-05 — cvtools.py İngilizceleştirme ve kod kuralları
+- `learning/cvtools.py` içindeki docstring ve açıklamalar İngilizceye çevirildi (kullanıcının açık isteğiyle istisna; kod gövdelerine dokunulmadı).
+- "Çalışma tarzı"na iki kural eklendi: `learning/` kuralı `.py` dosyalarını da kapsar; koddaki her şey İngilizce olur (davranışı belirleyen string değerler hariç).
+- `diagnose_exposure`'ın döndürdüğü `"karanlık"` / `"aşırı parlak"` / `"normal"` değerleri bilerek Türkçe bırakıldı (test hücresi karşılaştırıyor olabilir).
+- **Açık iş:** `load_bgr` hata mesajındaki `image::` yazım hatası (kullanıcı düzeltecek).
+- **Sıradaki:** `m01b` (dönüşümler + morfoloji).
 
 ### 2026-11-02 — Proje yeniden adlandırma ve ortam düzeni
 - Remote ve yerel repo `industrial-ai-ml-prep` → `vision-ml-rnd` olarak yeniden adlandırıldı, proje klasörü taşındı.
