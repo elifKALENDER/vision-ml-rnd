@@ -1,58 +1,78 @@
 # PROGRESS
 
-Son güncelleme: 2026-11-02 · Toplam oturum (bu düzenden itibaren): 0
+## Nerede kaldım
+- **Modül 1, 1a** (`m01a_opencv_core_v2`). 25/25 egzersizin kodu yazılmış; v2'de egzersizler 8 problemin altına toplandı. `cvtools.py`'de sadece `load_bgr` yazıldı, hiçbir problem testi henüz `✓` değil.
+- **Sıradaki adım:** Problem 1 — `show()`'u `cvtools.py`'ye yaz, test hücresini çalıştır (`Problem 1 ✓`).
+- Önceki plandan yarım kalan: Ex 26 (Translation, 1b'de 9.1). `cv2.warpAffine` ve `M = np.float32([[1, 0, tx], [0, 1, ty]])` anlaşıldı, kod henüz yazılıp test edilmedi.
+- Son güncelleme: 2026-11-05
 
-| Modül | Notebook | Oturum | Çıktı | Durum |
-|---|---|---|---|---|
-| 0 Python + NumPy | m00_numpy_core | düzeltmeler Oturum 1'de | — | düzeltme bekliyor |
-| 1 Klasik CV | m01a / m01b / m01c | 0/6 (Oturum 1: düzeltmeler + 13 gözlem) | RND-001 | 25/45 egzersiz |
-| 2 Veri + ML baseline | m02_data_ml_baseline | 0/7 | RND-002 | başlamadı |
-| 3 Klasik ML derinleşme | m03_classical_ml | 0/7 | RND-003 | — |
-| 4 ML matematiği | m04_math_for_ml | 0/8 | TN-001 | — |
-| 5 Deney tasarımı ve istatistik | m05_experiment_stats | 0/5 | TN-002 | — |
-| 6 Sinir ağları sıfırdan + optimizasyon | m06_nn_from_scratch | 0/7 | RND-004 | — |
-| 7 PyTorch + eğitim zanaatı | m07_pytorch_training | 0/8 | RND-005 | — |
-| 8 CNN mimarileri + transfer learning | m08_cnn_transfer | 0/6 | RND-006 | — |
-| 9 Transformer, self-supervised, multimodal | m09_transformers_ssl_multimodal | 0/8 | RND-007 | — |
-| 10 Dataset engineering (+ Blender sentetik veri) | m10_dataset_engineering | 0/6 | RND-008 | — |
-| 11 Object detection | m11_detection | 0/6 | RND-009 | — |
-| 12 Segmentation | m12_segmentation | 0/6 | RND-010 | — |
-| 13 Video + tracking | m13_video_tracking | 0/5 | RND-011 | — |
-| K1 Kaggle 1 (Faz C kapısı) | k1_kaggle | 0/5 | RND-012 | — |
-| 14 Projektif geometri + kamera | m14_projective_geometry | 0/8 | RND-013 | — |
-| 15 Multi-view geometri + 3D rekonstrüksiyon | m15_multiview_3d | 0/8 | RND-014 | — |
-| 15b Radyometri, PBR, differentiable rendering | m15b_rendering_pbr | 0/6 | RND-019 | — |
-| 16 Generative I — diffusion temeli | m16_diffusion_foundations | 0/8 | RND-015 | — |
-| 17 Generative II — kontrollü üretim + değerlendirme | m17_controlled_generation | 0/8 | RND-016 | — |
-| 18 Mühendislik, deployment ve verimlilik | m18_deployment_efficiency | 0/6 | RND-017 | — |
-| K2 Kaggle 2 (ölçülebilir hedef: Top %20) | k2_kaggle | 0/4 | RND-018 | — |
-| EK Ek oturumlar (A–D) | extras | 0/5 | — | — |
+Oturum günlüğü ve hatalar: `JOURNAL.md`.
 
-Dosya adı = modül numarası (`m03_…` → Modül 3, `k1_…` → Kaggle 1). Toplam: 159 oturum, ~795 egzersiz.
+## Modüller
+
+Dosya adı = modül numarası (`m03_…` → Modül 3, `k1_…` → Kaggle 1). 1 oturum = 5 egzersiz (Modül 1a/1b hariç: 1 oturum = 1 problem). Toplam (Modül 1'in eski 6 oturumluk planıyla): 159 oturum, ~795 egzersiz.
+
+- [ ] **0 Python + NumPy** · `m00_numpy_core` · egzersizler bitti, düzeltmeler bekliyor
+- [ ] **1 Klasik CV** · `m01a_opencv_core_v2` / `m01b_opencv_transforms_morph_v2` / `m01c_opencv_pipelines_rnd` · 0/17 · RND-001 (alt liste aşağıda)
+- [ ] **2 Veri + ML baseline** · `m02_data_ml_baseline` · 0/7 · RND-002
+- [ ] **3 Klasik ML derinleşme** · `m03_classical_ml` · 0/7 · RND-003
+- [ ] **4 ML matematiği** · `m04_math_for_ml` · 0/8 · TN-001
+- [ ] **5 Deney tasarımı ve istatistik** · `m05_experiment_stats` · 0/5 · TN-002
+- [ ] **6 Sinir ağları sıfırdan + optimizasyon** · `m06_nn_from_scratch` · 0/7 · RND-004
+- [ ] **7 PyTorch + eğitim zanaatı** · `m07_pytorch_training` · 0/8 · RND-005
+- [ ] **8 CNN mimarileri + transfer learning** · `m08_cnn_transfer` · 0/6 · RND-006
+- [ ] **9 Transformer, self-supervised, multimodal** · `m09_transformers_ssl_multimodal` · 0/8 · RND-007
+- [ ] **10 Dataset engineering (+ Blender sentetik veri)** · `m10_dataset_engineering` · 0/6 · RND-008
+- [ ] **11 Object detection** · `m11_detection` · 0/6 · RND-009
+- [ ] **12 Segmentation** · `m12_segmentation` · 0/6 · RND-010
+- [ ] **13 Video + tracking** · `m13_video_tracking` · 0/5 · RND-011
+- [ ] **K1 Kaggle 1 (Faz C kapısı)** · `k1_kaggle` · 0/5 · RND-012
+- [ ] **14 Projektif geometri + kamera** · `m14_projective_geometry` · 0/8 · RND-013
+- [ ] **15 Multi-view geometri + 3D rekonstrüksiyon** · `m15_multiview_3d` · 0/8 · RND-014
+- [ ] **15b Radyometri, PBR, differentiable rendering** · `m15b_rendering_pbr` · 0/6 · RND-019
+- [ ] **16 Generative I — diffusion temeli** · `m16_diffusion_foundations` · 0/8 · RND-015
+- [ ] **17 Generative II — kontrollü üretim + değerlendirme** · `m17_controlled_generation` · 0/8 · RND-016
+- [ ] **18 Mühendislik, deployment ve verimlilik** · `m18_deployment_efficiency` · 0/6 · RND-017
+- [ ] **K2 Kaggle 2 (ölçülebilir hedef: Top %20)** · `k2_kaggle` · 0/4 · RND-018
+- [ ] **EK Ek oturumlar (A–D)** · `extras` · 0/5
 
 **`extras` yerleşimi:** EK-A frekans alanı → Modül 4'ten sonra · EK-B belirsizlik → Modül 9'dan sonra · EK-C GPU/sistem → Modül 18 içinde · EK-D1–D2 ileri matematik → Faz D sonrası.
 
-**Paralel hatlar**
+## Modül 0 ve 1'i kapatan oturumlar
 
-| Hat | Dosya | Oturum | Durum |
-|---|---|---|---|
-| P1 Python mühendisliği | p1_python_engineering.ipynb | 0/6 | — |
-| P2 CS temeli — algoritmalar ve veri yapıları | p2_cs_algorithms.ipynb | 0/10 | — |
-| P3 Teknik İngilizce | tracks/p3_technical_english.md | günlük 15–20 dk | — |
-| P4 Araştırma okuryazarlığı | tracks/p4_research_literacy.md | ayda 1 makale | — |
-| P5 Deneyim ve görünürlük | tracks/p5_experience_visibility.md | modül sonu kontrolü | — |
+**Modül 0 düzeltmeleri** (eski planda Oturum 1'in parçasıydı)
+- [ ] `m00`: TODO 7, 8, 10, 15, 17 + Ex 2, 5, 6
 
-## Sıradaki 6 oturum (Modül 1'i kapatır)
+**1a — `m01a_opencv_core_v2`** (her problem: eksik gözlem ve inceleme notlarını kapat → aracı `cvtools.py`'ye yaz → test `✓`)
+- [ ] P1 Ex 1–4 → `load_bgr`, `show` (Ex 1 inceleme değerleri)
+- [ ] P2 Ex 5–6 → `color_mask`, `apply_mask` (Ex 6 HSV aralığını belgele)
+- [ ] P3 Ex 7–9 → `excess_green` (Ex 9 taşma ve BGR gösterim hataları)
+- [ ] P4 Ex 10–13 → `diagnose_exposure`
+- [ ] P5 Ex 14–15 → `smooth`
+- [ ] P6 Ex 16–18 → `binarize` (Ex 17 düzelt ve yorumla)
+- [ ] P7 Ex 19–22 → `edge_map` (Ex 22'yi tek değişkenle yeniden yap)
+- [ ] P8 Ex 23–25 → `find_boxes`, `draw_boxes`
+- [ ] Final v1 → `outputs/facade_v1.png` + karar kaydı (`images/facade.jpg` gerekli, henüz yok)
 
-- [ ] **Oturum 1 — düzeltmeler.** `m00`: TODO 7, 8, 10, 15, 17 + Ex 2, 5, 6. `m01a`: 13 gözlem cümlesi (Ex 2–4, 6, 9–11, 13–18), Ex 6 HSV aralığını belgele, Ex 17 düzelt, Ex 22'yi gri görüntüyle yeniden yap.
-- [ ] **Oturum 2** — `m01b`: Ex 26–30
-- [ ] **Oturum 3** — `m01b`: Ex 31–35
-- [ ] **Oturum 4** — `m01c`: Ex 36–40
-- [ ] **Oturum 5** — `m01c`: final challenge, `src/pipeline.py`, RND-001 taslağı
-- [ ] **Oturum 6** — `m01c`: sıfırdan convolution (Ex 41–45), Modül 1 kapanış
+**1b — `m01b_opencv_transforms_morph_v2`** (Ex 26–35)
+- [ ] P9 Ex 26–29 → `rotate`, `resize_scale`
+- [ ] P10 Ex 30 → `crop_boxes`
+- [ ] P11 Ex 31–32 → `clean_mask` (sonra Ex 24'e dön, bkz. JOURNAL)
+- [ ] P12 Ex 33–35 → `combine`
+- [ ] Final v2 → `outputs/facade_v2.png`, `outputs/windows/` + karar kaydı
 
-## Oturum günlüğü
+**1c — `m01c_opencv_pipelines_rnd`** (Ex 36–45)
+- [ ] Ex 36–40: mini pipeline'lar ve kontrollü deney
+- [ ] Kapanış: AI'sız final challenge, klasör pipeline'ı (`pipeline.py`), RND-001 taslağı
+- [ ] Ex 41–45: sıfırdan convolution, Modül 1 kapanış
 
-| # | Tarih | Notebook | Egzersizler | AI'sız olan | Not |
-|---|---|---|---|---|---|
-| 1 |  |  |  |  |  |
+## Paralel hatlar (`learning/tracks/`)
+- [ ] **P1 Python mühendisliği** · `p1_python_engineering.ipynb` · 0/6
+- [ ] **P2 CS temeli — algoritmalar ve veri yapıları** · `p2_cs_algorithms.ipynb` · 0/10
+- [ ] **P3 Teknik İngilizce** · `p3_technical_english.md` · günlük 15–20 dk
+- [ ] **P4 Araştırma okuryazarlığı** · `p4_research_literacy.md` · ayda 1 makale
+- [ ] **P5 Deneyim ve görünürlük** · `p5_experience_visibility.md` · modül sonu kontrolü
+
+## Plan notları
+- Gözlemler İngilizce yazılıyor; P3 (Teknik İngilizce) hedefine aynı anda hizmet etsin diye.
+- Yöntem sırası esnek: bir yöntem görsele uymadığında (ör. düşük kontrastta threshold) plan sırası beklenmeden uygun alternatife (Canny, HSV) geçilebilir.

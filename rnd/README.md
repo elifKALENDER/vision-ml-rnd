@@ -20,6 +20,7 @@ Each report lives in its own folder: `RND-NNN-<topic>/` with `report.md`, `figur
 | RND-012 | K1 | What moved the score most in this competition: data, resolution, backbone or ensembling? | — | planned |
 | RND-013 | 14 | On repetitive facades, is classical (SIFT + RANSAC) or learned (LightGlue) matching more reliable? | — | planned |
 | RND-014 | 15 | How far does MASt3R depth deviate from Blender ground truth on original vs clay-preprocessed inputs? | — | planned |
+| RND-019 | 15b | Are SD-based renders faithful to lighting? How consistent is the shading of MassToRender outputs with Blender's shading pass? | — | planned |
 | RND-015 | 16 | SD 1.5 on an RTX 2060, steps × scheduler: where is the quality (CLIP/FID) vs time trade-off? | — | planned |
 | RND-016 | 17 | MassToRender benchmark v1: which ControlNet component carries structure, and which carries material? | — | planned |
 | RND-017 | 18 | Deployment cost of my models on an RTX 2060: PyTorch FP32 vs FP16 vs ONNX vs TensorRT | — | planned |

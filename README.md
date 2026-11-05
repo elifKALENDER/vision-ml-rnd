@@ -2,6 +2,8 @@
 
 A structured, exercise-driven path from Python and classical computer vision to deep learning, 3D geometry and generative models, documented as reproducible R&D reports.
 
+The goal is to be a strong, evidence-backed candidate for R&D / Computer Vision roles by 25 August 2027. The differentiator is architecture + 3D/spatial reasoning + generative AI, on an engineering backbone of Python, NumPy/OpenCV, PyTorch, dataset engineering, evaluation and Git/Linux.
+
 The long-term target is **MassToRender** (RND-016): turning architectural massing models and sketches into controlled renders. Every module builds a skill that project needs.
 
 ## Structure
@@ -10,6 +12,7 @@ The long-term target is **MassToRender** (RND-016): turning architectural massin
 learning/        Module notebooks, named by module number
   m00_numpy_core.ipynb          Module 0
   m01a_… m01b_… m01c_…          Module 1 (classical CV, three parts)
+  cvtools.py                    Helper functions written during Module 1
   m02_… … m18_…                 Modules 2–18
   m15b_rendering_pbr.ipynb      Module 15b
   k1_kaggle.ipynb, k2_kaggle    Kaggle checkpoints
@@ -20,11 +23,14 @@ learning/        Module notebooks, named by module number
 rnd/             R&D reports (RND-NNN) and technical notes (TN-NNN)
 papers/          Paper notes
 src/             Reusable code extracted from the notebooks
-archive/         Earlier Python / pandas / OpenCV practice (frozen)
-PROGRESS.md      Session plan and progress log
-CLAUDE.md        Working notes and session log for AI-assisted sessions
+archive/         Earlier practice and superseded notebook versions (frozen)
+PROGRESS.md      Module and session checklist, current position
+JOURNAL.md       Mistakes and lessons, dated session log
+CLAUDE.md        Rules for AI-assisted sessions
 environment.yml  Conda environment (vision-ml-rnd)
 ```
+
+Documentation is split across six files, each fact in one place: `README.md`, `PROGRESS.md`, `JOURNAL.md`, `CLAUDE.md`, `rnd/README.md` and `rnd/RND-000-template.md`. Progress and journal are written in Turkish.
 
 ## Setup
 
@@ -52,7 +58,7 @@ Each module ends with an R&D report answering one concrete question. See [`rnd/R
 
 Problem → understand input/output → write a first solution → test → debug → refactor → repeat from a blank file.
 
-AI assistance is used as a learning and debugging aid, not as a replacement for understanding the solution. `PROGRESS.md` records which exercises were done without AI.
+AI assistance is used as a learning and debugging aid, not as a replacement for understanding the solution. `JOURNAL.md` records which exercises were done without AI.
 
 ## Sources
 
