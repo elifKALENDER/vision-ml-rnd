@@ -1,62 +1,66 @@
 # JOURNAL
 
-Kendi okuma dosyam. İki bölüm var: **Hatalar ve dersler** (konuya göre, tekrar düşmemek için) ve **Oturum günlüğü** (tarihli, en yeni en üstte). İlerleme durumu burada değil, `PROGRESS.md`'de.
+Tekrar okuyup çalışmak için. **Hatalar ve dersler** (konuya göre) ve **Oturum günlüğü** (en yeni üstte). İlerleme durumu `PROGRESS.md`'de.
 
 ## Hatalar ve dersler
 
-### P1 — Görüntü okuma (`load_bgr`)
-- `cv2.imread` dosyayı okuyamazsa hata vermez, sessizce `None` döndürür. Hata çok sonra, ilk `.shape` ya da `cvtColor` çağrısında çıkar. Bu yüzden `load_bgr` `None` görünce hemen `FileNotFoundError` fırlatıyor.
-- Windows'ta `cv2.imread` ASCII olmayan karakter içeren yollarda (ör. Türkçe harfli klasör adı) okuyamayabilir ve yine `None` döner. Dosya yerindeyse ilk şüpheli yol adıdır.
-- Hata mesajında `image::` yazım hatası vardı (çift iki nokta). Düzeltildi: `"Could not read image: {path}"`.
-- PEP 8: `if img is None: raise ...` tek satırda yazılmaz; `raise` alt satıra, girintili.
+### P1 — `load_bgr`
+- `cv2.imread` okuyamazsa hata vermez, `None` döndürür; hata sonradan çıkar. Hemen `FileNotFoundError` fırlat.
+- Windows'ta Türkçe harfli yollar `imread`'de `None` verebilir.
 
-### Blur (Ex 14–15, P5)
-- Kernel boyutu (ör. `(7,7)`) filtrenin baktığı komşuluk penceresidir. Yöntemleri adil karşılaştırmak için hepsinde aynı tutulmalı.
+### P1 — `show`
+- `plt.subplots(1, 1)` dizi değil tek `Axes` döndürür. `squeeze=False` ile `axs` hep 2 boyutlu: `axs[r][c]`, kapatmak için `axs.ravel()`. Emin değilsen `print(axs.shape)`.
+- `for i, img in enumerate(images)` tek döngü yeter; içine bir döngü daha koyma.
+- Girinti = kapsam: `set_title` döngü dışına düşünce sadece son görüntü başlık aldı.
+- Önceden kontrol edilebilen şey için `try/except` değil `if` + `raise ValueError`. `try/except` bilemediğin şeyler için (dosya açma, `imread`). Gövdesiz `except:` `SyntaxError` verir.
+- Önce doğrula, sonra çiz. Bilgiyi `print` yerine hata mesajına yaz.
+- Yarım `def` tüm `cvtools` import'unu bozar; kontrol: `python -c "import cvtools"`.
+- Test: `m01a_opencv_core_v2` hücre 18 (`importlib.reload(cvtools)` ile kernel'i yeniden başlatmadan).
 
-### Sobel / Scharr (Ex 19–20, P7)
-- Gradyan operatörlerine BGR görüntü verilirse 3 kanallı, anlamsız çıktı gelir. Önce griye çevir (`cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)`).
-- Sabit adı `cv2.CV_64F` (alt çizgili), `cv2.CV64F` değil.
+### P2 — `color_mask`, `apply_mask`
+- Bir fonksiyon, bir iş: `color_mask` maskeyi **bulur** (`inRange`, `(H, W)` uint8, 0/255), `apply_mask` **uygular** (`bitwise_and`).
+- Kod kopyalarken fonksiyonun parametrelerine bak (`NameError: lower_hsv`). Parametre olarak gelen maskeyi yeniden hesaplama.
+- `cv2.resize` boyut uyumsuzluğunu sessizce gizler; hata olarak görünmeli.
 
-### Find Contours (Ex 23, P8)
-- `counters` / `contours` gibi benzer isimler `NameError` üretir; değişken adlarını tutarlı tut.
-- `cv2.drawContours` görüntüyü yerinde değiştirir. Orijinali korumak için `.copy()` üzerinde çiz.
-- Beyaz arka planlı, düşük kontrastlı görselde global threshold nesneyi arka plandan ayıramaz.
+### Blur (Ex 14–15)
+- Yöntemleri karşılaştırırken kernel boyutunu hepsinde aynı tut.
 
-### Filter by Area (Ex 24, P8)
-- `filtered.append(contours)` tüm listeyi tek eleman olarak ekler; doğrusu `filtered.append(cnt)`.
-- **Düzeltilmiş ders:** Canny ince ve çoğu zaman açık kenar çizgileri üretir. Bu çizgiler üzerinde bulunan konturların `contourArea` değeri nesnenin alanını değil, 1–2 piksellik kenar şeridinin alanını ölçer. Kuyruğun 95 piksel çıkması bu yüzdendi; `min_area`'yı 100'den 90'a düşürmek bir sonraki görselde yine bozulan geçici bir çözüm.
-- **Doğru yaklaşım:** Canny çıktısını `cv2.dilate` veya `cv2.morphologyEx(..., cv2.MORPH_CLOSE, ...)` ile kapatıp sonra kontur bulmak ya da kenar yerine dolu bir maske (ör. HSV eşikleme) kullanmak.
-- **Yapılacak:** Morfolojiden sonra (1b, P11 `clean_mask`) Ex 24'e dönüp iki yaklaşımı aynı görselde karşılaştır.
+### Sobel / Scharr (Ex 19–20)
+- Gradyan operatörüne BGR değil gri görüntü ver.
+- Sabit adı `cv2.CV_64F`.
 
-### Bounding Boxes (Ex 25, P8)
-- `cv2.rectangle(img, (x, y), (x + w, y + h), ...)`: `pt1` sol üst köşe, `pt2` sağ alt köşe.
+### Find Contours (Ex 23)
+- Benzer değişken adları (`counters`/`contours`) `NameError` üretir.
+- `cv2.drawContours` görüntüyü yerinde değiştirir; `.copy()` üzerinde çiz.
+- Düşük kontrastlı görselde global threshold nesneyi ayıramaz.
 
-### Dosya yolları ve klasörler
-- Kural: üretilen dosyalar `outputs/` altına yazılır (git-ignored). `m01a_opencv_core_v2` ise `OUTPUT_DIR = Path("cv_outputs")` kullanıyor; `cv_outputs/` git-ignored değil. Düzeltmesi bende.
-- Proje klasörü taşınınca göreli yollar bozulabilir (taşımadan sonra `m01a`'daki maske kaydı `outputs/duck_yellow_mask.png` olarak düzeltildi). Notebook'lar her zaman `learning/` klasöründen çalıştırılır.
+### Filter by Area (Ex 24)
+- `filtered.append(cnt)`, `append(contours)` değil.
+- Canny açık, ince kenar verir; `contourArea` nesnenin değil kenar şeridinin alanını ölçer. `min_area`'yı ayarlamak geçici çözüm.
+- Doğrusu: Canny çıktısını `dilate`/`MORPH_CLOSE` ile kapatmak ya da dolu maske (HSV eşikleme) kullanmak.
+- **Yapılacak:** 1b P11 (`clean_mask`) sonrası Ex 24'e dönüp iki yaklaşımı karşılaştır.
 
-### Ortam
-- PyCharm'da `.ipynb` çıktıları görünmediği için terminalden `.py` çalıştırmaya geçildi. Bu kalıcı akış olarak kalabilir; görsel çıktı için `cv2.imwrite` ile dosyaya yaz veya `matplotlib` kullan.
-- `environment.yml`'de `numpy=2.5` gibi kısmi sürümler PyCharm'da yanlış "requirements not satisfied" uyarısı verir (`=2.5`i `==2.5.0` okuyor). Tam sürüm yaz: `2.5.1`.
+### Bounding Boxes (Ex 25)
+- `cv2.rectangle(img, (x, y), (x + w, y + h), ...)`: sol üst ve sağ alt köşe.
+
+### Yollar ve ortam
+- Üretilen dosyalar `outputs/` altına (git-ignored). `m01a_v2` `cv_outputs/` kullanıyor, düzeltilecek.
+- Notebook'lar `learning/` klasöründen çalıştırılır; klasör taşınınca göreli yollar bozulabilir.
+- PyCharm'da `.ipynb` çıktısı görünmüyorsa terminalden `.py` çalıştır; görsel için `cv2.imwrite` veya `matplotlib`.
+- `environment.yml`'de tam sürüm yaz (`2.5.1`); `2.5` PyCharm'da yanlış uyarı verir.
 
 ## Oturum günlüğü
 
-### 2026-11-05 — cvtools.py İngilizceleştirme, kod kuralları, doküman düzeni
-- `learning/cvtools.py` içindeki docstring ve açıklamalar İngilizceye çevrildi (açık isteğimle istisna; kod gövdelerine dokunulmadı).
-- Claude kurallarına eklendi: `learning/` kuralı `.py` dosyalarını da kapsar; koddaki her şey İngilizce olur (davranışı belirleyen string değerler hariç).
-- `diagnose_exposure`'ın döndürdüğü `"karanlık"` / `"aşırı parlak"` / `"normal"` değerleri bilerek Türkçe bırakıldı (test hücresi karşılaştırıyor olabilir).
-- `load_bgr` hata mesajındaki `image::` yazım hatası düzeltildi.
-- Dokümanlar yeniden düzenlendi: `plan.md` ve `lessons.md` kaldırıldı; içerikleri `README.md`, `PROGRESS.md` ve bu dosyaya taşındı. Oturum günlüğü artık burada.
-- **Açık iş:** `m01a_v2`'deki `cv_outputs/` → `outputs/`; `images/facade.jpg` henüz yok (final v1 için gerekli); `m01a_v2` ve `m01b_v2` henüz commit edilmedi.
-- **Sıradaki:** `m01a_v2` Problem 1: `show()`'u yaz, test hücresi `✓`.
+### 2026-11-05 — cvtools düzeltmeleri, kurallar, doküman düzeni
+- `cvtools.py` docstring'leri İngilizceye çevrildi. Kural: koddaki her şey İngilizce (`"karanlık"` gibi test edilen string'ler hariç).
+- Dokümanlar yeniden düzenlendi: `plan.md` ve `lessons.md` kalktı, günlük bu dosyaya geldi.
+- `load_bgr`, `show` (+`ncols`), `color_mask`, `apply_mask` yazıldı; ayrı scriptle sınandı, geçti.
+- **Açık:** notebook hücre 18 ve 31 henüz çalıştırılmadı; `show` docstring'ine `ncols`; `cv_outputs/` → `outputs/`; `images/facade.jpg` yok; v2 notebook'lar ve `cvtools.py` commit edilmedi.
+- **Sıradaki:** hücre 18 ve 31 `✓`, sonra P3 (`excess_green`).
 
-### 2026-11-02 — Proje yeniden adlandırma ve ortam düzeni
-- Remote ve yerel repo `industrial-ai-ml-prep` → `vision-ml-rnd` olarak yeniden adlandırıldı, proje klasörü taşındı.
-- Notebook'lar modül numarasına göre yeniden adlandırıldı (commit `3532c16`).
-- Taşımadan sonra bozulan yol düzeltildi: `m01a` 24. hücre maskeyi `outputs/duck_yellow_mask.png` olarak kaydediyor.
-- Conda env `vision-ml-rnd` adıyla klonlandı, Jupyter kernel kaydedildi, `environment.yml` ve README kurulum bölümü eklendi.
-- Tüm notebook'lar yeni ortamda baştan sona çalıştırıldı: m07+ dışında hata yok (onlarda `torch` yok, beklenen durum).
-- PyCharm yorumlayıcısı `vision-ml-rnd`'e geçirildi. Eski env `industrial-ai-ml-prep` ve Jupyter kernel'i silindi.
-- `environment.yml` sürümleri tam sürüme sabitlendi (`numpy=2.5` → `2.5.1` vb.).
-- Repo düzeni gözden geçirildi: `.gitattributes` eklendi (LF), `rnd/README.md` tablosu tamamen İngilizce yapıldı. Bilinçli olarak bırakılanlar: `archive/` adları (dondurulmuş), `learning/data/m2_images` → `m02_images` (m02 notebook kodunda geçiyor, Modül 2'de kendim değiştireceğim).
-- **Sıradaki:** `m01b` (dönüşümler + morfoloji).
+### 2026-11-02 — Proje yeniden adlandırma ve ortam
+- Repo `industrial-ai-ml-prep` → `vision-ml-rnd`; notebook'lar modül numarasıyla yeniden adlandırıldı.
+- Conda env `vision-ml-rnd` kuruldu (`environment.yml`), Jupyter kernel kaydedildi, eski env silindi.
+- Tüm notebook'lar çalıştırıldı: m07+ dışında hata yok (`torch` yok, beklenen).
+- Bilerek bırakıldı: `archive/` adları, `learning/data/m2_images` (Modül 2'de kendim değiştireceğim).
+- **Sıradaki:** `m01b`.

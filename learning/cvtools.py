@@ -32,21 +32,51 @@ def load_bgr(path):
 
     Raises FileNotFoundError instead of returning None if the file cannot be read.
     """
-    img = cv2.imread(path)
+    img = cv2.imread(str(path))
     if img is None:
         raise FileNotFoundError(f"Could not read image: {path}")
 
     return img
 
 
-def show(*images, titles=None):
+def show(*images, titles=None, ncols=None):
     """Displays images side by side.
 
     2D image → gray colormap.
     3D image → converted from BGR to RGB.
     Turns the axes off. If titles is given, adds a title to each image.
     """
-    raise NotImplementedError
+    if len(images) == 0:
+        raise ValueError("No images to show")
+    n = len(images)
+    if titles is not None and len(titles) != n:
+        raise ValueError(
+            f"Titles not the same length as images: {len(titles)} titles, {n} images")
+    if ncols is None:
+        ncols = n
+    if ncols < 1:
+        raise ValueError(f"ncols must be >= 1, got {ncols}")
+    nrows = int(np.ceil(n / ncols))
+
+    _, axs = plt.subplots(nrows, ncols, figsize=(4 * ncols, 4 * nrows), squeeze=False)
+    for i, img in enumerate(images):
+        r, c = divmod(i, ncols)
+        ax = axs[r][c]
+        if img.ndim == 2:
+            ax.imshow(img, cmap="gray")
+        elif img.ndim == 3:
+            ax.imshow(
+                cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+        else:
+            raise ValueError(f"Unexpected dimension count: {img.ndim}, shape: {img.shape}")
+        if titles is not None:
+            ax.set_title(titles[i])
+
+    for ax in axs.ravel():
+        ax.axis("off")
+
+    plt.tight_layout()
+    plt.show()
 
 
 # ---------------------------------------------------------------- P2
@@ -55,12 +85,28 @@ def color_mask(bgr, lower_hsv, upper_hsv):
 
     Returns: a (H, W) uint8 mask containing only 0 and 255.
     """
-    raise NotImplementedError
+    hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
+    binary = cv2.inRange(hsv, lower_hsv, upper_hsv)
+
+    return binary
 
 
 def apply_mask(bgr, mask):
     """Sets pixels where the mask is 0 to black and leaves the rest unchanged."""
-    raise NotImplementedError
+
+    mask_h, mask_w = bgr.shape[:2]
+    hsv_mask = cv2.resize(
+        mask,
+        (mask_w, mask_h),
+        interpolation=cv2.INTER_NEAREST
+    )
+    mask_mask = cv2.bitwise_and(
+        bgr,
+        bgr,
+        mask=hsv_mask
+    )
+
+    return mask_mask
 
 
 # ---------------------------------------------------------------- P3
