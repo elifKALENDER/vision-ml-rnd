@@ -20,6 +20,7 @@ Each fact lives in exactly one file.
 | `README.md` | English | Public face of the repo: goal, structure, setup, curriculum |
 | `rnd/README.md` | English | Index of R&D reports (RND-NNN) and technical notes (TN-NNN) |
 | `rnd/RND-000-template.md` | English | Template for each report |
+| `drills/README.md` | English | Short repeatable Python drills (stubs + tests) and the day-end routine |
 
 ## Folder rules
 - Notebooks live in `learning/`, named by module number (`m01a_…`, `k1_…`, `tracks/p1_…`).
@@ -38,3 +39,4 @@ Each fact lives in exactly one file.
 1. Append a dated Turkish entry to the "Oturum günlüğü" section of `JOURNAL.md` (newest first: `### YYYY-MM-DD — topic`, what was done, exercises done without AI, open items, next step).
 2. Update the checkboxes and "Nerede kaldım" in `PROGRESS.md`.
 3. If the user pasted lesson notes or made mistakes worth keeping, add them to "Hatalar ve dersler" in `JOURNAL.md` under the matching topic. Append, never overwrite. If no notes were pasted, ask.
+4. Drills: add 2–4 new drills for the mistakes the user got stuck on most today to the matching pattern file in `drills/` (or a new `dNN_…`). Write stubs (`raise NotImplementedError`) and `assert` tests only, never solutions. Check the tests against a private reference solution in the scratchpad. Then name 2 older drills to repeat tomorrow. `drills/` is not under the `learning/` no-edit rule, but `cards.md` belongs to the user.

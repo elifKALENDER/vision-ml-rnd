@@ -1,10 +1,10 @@
 # PROGRESS
 
 ## Nerede kaldım
-- **Modül 1, 1a** (`m01a_opencv_core_v2`). 25/25 egzersizin kodu yazılmış; v2'de egzersizler 8 problemin altına toplandı. `cvtools.py`'de sadece `load_bgr` yazıldı, hiçbir problem testi henüz `✓` değil.
-- **Sıradaki adım:** Problem 1 — `show()`'u `cvtools.py`'ye yaz, test hücresini çalıştır (`Problem 1 ✓`).
+- **Modül 1, 1a** (`m01a_opencv_core_v2`). 25/25 egzersizin kodu yazılmış; v2'de egzersizler 8 problemin altına toplandı. `cvtools.py`'de P1–P7 araçları yazıldı ve ayrı scriptle sınandı. Notebook test hücreleri (`✓`) henüz çalıştırılmadı.
+- **Sıradaki adım:** Notebook test hücrelerini P1–P7 için çalıştır (`importlib.reload(cvtools)`), sonra P8 — `find_boxes`, `draw_boxes`.
 - Önceki plandan yarım kalan: Ex 26 (Translation, 1b'de 9.1). `cv2.warpAffine` ve `M = np.float32([[1, 0, tx], [0, 1, ty]])` anlaşıldı, kod henüz yazılıp test edilmedi.
-- Son güncelleme: 2026-11-05
+- Son güncelleme: 2026-11-06
 
 Oturum günlüğü ve hatalar: `JOURNAL.md`.
 
@@ -44,13 +44,13 @@ Dosya adı = modül numarası (`m03_…` → Modül 3, `k1_…` → Kaggle 1). 1
 - [ ] `m00`: TODO 7, 8, 10, 15, 17 + Ex 2, 5, 6
 
 **1a — `m01a_opencv_core_v2`** (her problem: eksik gözlem ve inceleme notlarını kapat → aracı `cvtools.py`'ye yaz → test `✓`)
-- [ ] P1 Ex 1–4 → `load_bgr`, `show` (Ex 1 inceleme değerleri)
-- [ ] P2 Ex 5–6 → `color_mask`, `apply_mask` (Ex 6 HSV aralığını belgele)
-- [ ] P3 Ex 7–9 → `excess_green` (Ex 9 taşma ve BGR gösterim hataları)
-- [ ] P4 Ex 10–13 → `diagnose_exposure`
-- [ ] P5 Ex 14–15 → `smooth`
-- [ ] P6 Ex 16–18 → `binarize` (Ex 17 düzelt ve yorumla)
-- [ ] P7 Ex 19–22 → `edge_map` (Ex 22'yi tek değişkenle yeniden yap)
+- [ ] P1 Ex 1–4 → `load_bgr`, `show` (Ex 1 inceleme değerleri) · araç yazıldı, notebook testi bekliyor
+- [ ] P2 Ex 5–6 → `color_mask`, `apply_mask` (Ex 6 HSV aralığını belgele) · araç yazıldı, notebook testi bekliyor
+- [ ] P3 Ex 7–9 → `excess_green` (Ex 9 taşma ve BGR gösterim hataları) · araç yazıldı, notebook testi bekliyor
+- [ ] P4 Ex 10–13 → `diagnose_exposure` · araç yazıldı, notebook testi bekliyor
+- [ ] P5 Ex 14–15 → `smooth` · araç yazıldı, notebook testi bekliyor
+- [ ] P6 Ex 16–18 → `binarize` (Ex 17 düzelt ve yorumla) · araç yazıldı, notebook testi bekliyor
+- [ ] P7 Ex 19–22 → `edge_map` (Ex 22'yi tek değişkenle yeniden yap) · araç yazıldı, notebook testi bekliyor
 - [ ] P8 Ex 23–25 → `find_boxes`, `draw_boxes`
 - [ ] Final v1 → `outputs/facade_v1.png` + karar kaydı (`images/facade.jpg` gerekli, henüz yok)
 

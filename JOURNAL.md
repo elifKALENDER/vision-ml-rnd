@@ -22,6 +22,29 @@ Tekrar okuyup çalışmak için. **Hatalar ve dersler** (konuya göre) ve **Otur
 - Kod kopyalarken fonksiyonun parametrelerine bak (`NameError: lower_hsv`). Parametre olarak gelen maskeyi yeniden hesaplama.
 - `cv2.resize` boyut uyumsuzluğunu sessizce gizler; hata olarak görünmeli.
 
+### P3 — `excess_green`
+- `cv2.merge` kanalları üst üste dizer, formül hesaplamaz; çıktı `(H, W)` tek kanal olmalı.
+- `uint8` taşar ve sarar (200·2 → 144). Hesaptan **önce** işaretli türe çevir (`int16`); `uint16` negatifi de sarar.
+- `x.astype(...)` yeni dizi döndürür; sonucu atamazsan hiçbir şey değişmez. `np.clip` türü değiştirmez, sonda `uint8`'e çevir.
+
+### P4 — `diagnose_exposure`
+- Etiketleri ve koşulları docstring'den birebir al (`"karanlık"`, `"aşırı parlak"`, `"normal"`); testler string karşılaştırır.
+- `dict` gibi yerleşik adları değişken adı yapma.
+
+### P5 — `smooth`
+- Python'da `-3 % 2 == 1`; tek sayı kontrolü negatifi yakalamaz, `k < 1` ayrıca kontrol edilmeli.
+- Bilinmeyen `method` sessizce geçmemeli; son `else` ya da geçerli adlar listesiyle `ValueError`.
+- `is not in` yok, doğrusu `not in`. Syntax hatası tüm `cvtools` import'unu bozar.
+
+### P6 — `binarize`
+- `cv2.threshold` `(retval, dst)` döndürür, `cv2.adaptiveThreshold` sadece `dst` (adaptive'de tek eşik yok).
+- `|` bitwise'tır ve karşılaştırmadan önce çalışır; mantıksal "veya" için `or`.
+- Her dalda `mask` atanmalı, yoksa `UnboundLocalError`. `method` tamsayıysa eşiğin kendisidir.
+
+### P7 — `edge_map`
+- `blur_k=0` "blur yok" demek, geçerli; reddedilecek olan negatif ve çift sayı (`<0`, `<1` değil).
+- Kontrolü `if blur_k > 0` bloğunun içine koyunca `blur_k < 1` hiç doğru olamaz; kapsam önemli.
+
 ### Blur (Ex 14–15)
 - Yöntemleri karşılaştırırken kernel boyutunu hepsinde aynı tut.
 
@@ -50,6 +73,14 @@ Tekrar okuyup çalışmak için. **Hatalar ve dersler** (konuya göre) ve **Otur
 - `environment.yml`'de tam sürüm yaz (`2.5.1`); `2.5` PyCharm'da yanlış uyarı verir.
 
 ## Oturum günlüğü
+
+### 2026-11-06 — cvtools P3–P7
+- `excess_green`, `diagnose_exposure`, `smooth`, `binarize`, `edge_map` yazıldı. Her biri incelenip düzeltildi, ayrı scriptle sınandı, geçti.
+- En çok zaman alan: `binarize` (tuple açma, `|` önceliği, `invert`) ve `edge_map` (`blur_k` kapsamı).
+- AI'sız yapılan egzersiz: yok, ipucu ve inceleme ile ilerlendi.
+- `drills/` kuruldu (5 kalıp dosyası, 27 test, hepsi `TODO`) ve gün sonu rutini `CLAUDE.md`'ye eklendi.
+- **Açık:** notebook test hücreleri P1–P7 için çalıştırılmadı; hata mesajı küçük notları (`"2-channel"` yazımı, `thresh_type`); eski açıklar (`cv_outputs/`, `images/facade.jpg`, commit edilmemiş v2 notebook'lar ve `cvtools.py`).
+- **Sıradaki:** P1–P7 test hücreleri `✓`, sonra P8 (`find_boxes`, `draw_boxes`).
 
 ### 2026-11-05 — cvtools düzeltmeleri, kurallar, doküman düzeni
 - `cvtools.py` docstring'leri İngilizceye çevrildi. Kural: koddaki her şey İngilizce (`"karanlık"` gibi test edilen string'ler hariç).
